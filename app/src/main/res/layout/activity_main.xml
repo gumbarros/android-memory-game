@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/ImageStyle"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -29,6 +30,7 @@
                 android:id="@+id/imageView4"
                 style="@style/ImageStyle"
                 android:layout_width="match_parent"
+                android:contentDescription="@string/card_description"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -58,6 +60,7 @@
                 android:id="@+id/imageView5"
                 style="@style/ImageStyle"
                 android:layout_width="match_parent"
+                android:contentDescription="@string/card_description"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/android" />
         </LinearLayout>
@@ -84,6 +87,7 @@
             <ImageView
                 android:id="@+id/imageView6"
                 style="@style/ImageStyle"
+                android:contentDescription="@string/card_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/android" />
@@ -111,6 +115,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 style="@style/ImageStyle"
+                android:contentDescription="@string/card_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/android" />
@@ -138,6 +143,7 @@
             <ImageView
                 android:id="@+id/imageView2"
                 style="@style/ImageStyle"
+                android:contentDescription="@string/card_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/android" />
@@ -165,6 +171,7 @@
             <ImageView
                 android:id="@+id/imageView3"
                 style="@style/ImageStyle"
+                android:contentDescription="@string/card_description"
                 app:srcCompat="@drawable/android" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

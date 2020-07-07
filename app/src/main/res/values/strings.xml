@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android Memory Game</string>
+    <string name="card_description">Card</string>
 </resources>

@@ -1,16 +1,10 @@
 package com.br.barros.memorygame
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.core.view.children
 import com.br.barros.memorygame.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlin.random.Random
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -75,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             binding.imageView6
         )
         for (image in images) {
+            image.tag = R.drawable.android
             image.setOnClickListener {
                 showImage(it as ImageView)
             }
@@ -83,6 +78,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun showImage(image: ImageView) {
         val drawnImage: Map<Int, Int>? = images.find { it.keys.first() == image.id }
-        image.setImageResource(drawnImage!!.values.first())
+        if(image.tag == R.drawable.android){
+            image.setImageResource(drawnImage!!.values.first())
+            image.tag = drawnImage!!.values.first()
+        }
+        else{
+            image.setImageResource(R.drawable.android)
+            image.tag = R.drawable.android
+        }
     }
 }

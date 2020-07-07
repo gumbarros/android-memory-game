@@ -18,15 +18,54 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var images: List<Map<Int, Int>>
 
+    private lateinit var technologies: MutableList<Int>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setCards()
+        shuffleImages()
         setListeners()
     }
 
-    private fun setListeners(){
+    private fun shuffleImages() {
+        technologies = mutableListOf<Int>(
+            R.drawable.flutter,
+            R.drawable.flutter,
+            R.drawable.kotlin,
+            R.drawable.kotlin,
+            R.drawable.react,
+            R.drawable.react
+        )
+        technologies.shuffle()
+        setImages()
+    }
+
+
+    private fun setImages() {
+        images = listOf(
+            mapOf(
+                binding.imageView.id to technologies[0]
+            ),
+            mapOf(
+                binding.imageView2.id to technologies[1]
+            ),
+            mapOf(
+                binding.imageView3.id to technologies[2]
+            ),
+            mapOf(
+                binding.imageView4.id to technologies[3]
+            ),
+            mapOf(
+                binding.imageView5.id to technologies[4]
+            ),
+            mapOf(
+                binding.imageView6.id to technologies[5]
+            )
+        )
+    }
+
+    private fun setListeners() {
         val images: List<ImageView> = listOf(
             binding.imageView,
             binding.imageView2,
@@ -42,39 +81,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showImage(image : ImageView){
-        val drawnImage : Map<Int, Int>? = images.find { it.keys.first() == image.id }
+    private fun showImage(image: ImageView) {
+        val drawnImage: Map<Int, Int>? = images.find { it.keys.first() == image.id }
         image.setImageResource(drawnImage!!.values.first())
-    }
-
-    private fun setCards(){
-        images = listOf(
-            mapOf(
-                binding.imageView.id to randomCard()
-            ),
-            mapOf(
-                binding.imageView2.id to randomCard()
-            ),
-            mapOf(
-                binding.imageView3.id to randomCard()
-            ),
-            mapOf(
-                binding.imageView4.id to randomCard()
-            ),
-            mapOf(
-                binding.imageView5.id to randomCard()
-            ),
-            mapOf(
-                binding.imageView6.id to randomCard()
-            )
-        )
-    }
-
-    private fun randomCard(): Int {
-        return when (Random.nextInt(0, 3)) {
-            0 -> R.drawable.kotlin
-            1 -> R.drawable.flutter
-            else -> R.drawable.react
-        }
     }
 }
